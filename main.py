@@ -16,6 +16,8 @@ ENTRY = (
 
 
 def main() -> None:
+    if not ENTRY or "\n" in ENTRY or not 1 <= len(ENTRY) <= 199:
+        raise SystemExit(f"invalid entry: {len(ENTRY)} chars, must be one line of 1-199 chars")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(ENTRY + "\n")
